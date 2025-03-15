@@ -31,9 +31,10 @@ def main():
 
     #ISOformatでの日付
     now_time=datetime.datetime.utcnow()+datetime.timedelta(hours=9)
-    now = now_time.replace(hour=0, minute=0, second=0, microsecond=0).isoformat() + "Z"  # 'Z' indicates UTC time
-    next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0).isoformat()+"Z"
-
+    now = now_time.replace(hour=0, minute=0, second=0).isoformat() + "Z"  # 'Z' indicates UTC time
+    next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0).isoformat()+"Z"
+    # next_day= now_time.replace(hour=23, minute=59, second=59).isoformat()+"Z"
+    # print(now_time)
     # print(now)
     # print(next_day)
 
@@ -63,6 +64,11 @@ def main():
 
     result=[]
     for event in events:
+      #次の予定が含まれていたらスキップ．
+      if event["start"].get("date") != None:
+        continue
+      #予定が次の日だと"date"がNone以外の値になるから，この条件文．
+      #############################
       date=event["start"].get("dateTime", event["start"].get("date"))
       summary=event["summary"]
       color_id=event.get("colorId","1")
@@ -73,7 +79,12 @@ def main():
       result_con={"date":date,"summary":summary,"desc":description,"color":color}
       result.append(result_con)
       
-      
+    #次の日の予定がAll dayだと含まれてしまうから消去
+    # while 1:
+    #   result_date=result[-1]["date"]
+    #   print(result_date)
+    #   break
+          
     return result
 
   except HttpError as error:
