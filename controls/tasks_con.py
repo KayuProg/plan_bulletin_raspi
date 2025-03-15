@@ -87,7 +87,7 @@ class tasks_contents():
         self.change_button=ft.Container(content=ft.ElevatedButton(text="Change Display",on_click=self.change_display,
                                                                   style=ft.ButtonStyle(text_style=ft.TextStyle(size=25)),
                                                                   #scale=1.3,
-                                                                  bgcolor="#f0ffff"),
+                                                                  bgcolor="#69696969",),
                                         margin=ft.margin.only(0,0,0,40),
                                         alignment=ft.alignment.top_right,
                                         )
@@ -99,7 +99,7 @@ class tasks_contents():
                                           ft.Container(content=ft.Divider(color="white",height=1.5,thickness=1.5),margin=ft.margin.only(0,0,0,20),),
                                           self.change_button,
                                           self.tasks_list,
-                                          self.refresh
+                                        #   self.refresh
                                         ],expand=True,spacing=0)
 
     def change_display(self,e):        
@@ -151,7 +151,7 @@ class tasks_contents():
             #########################################################
             #control作成
             #########################################################
-            due_date_control=ft.Container(content=ft.Text(due_date,size=35,weight=ft.FontWeight.W_500,color="white"),
+            due_date_control=ft.Container(content=ft.Text(due_date,size=30,weight=ft.FontWeight.W_500,color="white"),
                               alignment=ft.alignment.center,
                               width=120,
                             #   height=30,
@@ -160,7 +160,7 @@ class tasks_contents():
                               )
             
             if due_check=="expired":#期限切れ
-                title_control=ft.Container(content=ft.Text(title,size=35,weight=ft.FontWeight.W_500,color="red"),
+                title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="red"),
                                 alignment=ft.alignment.center_left,
                                 width=550,
                                 # height=50,
@@ -168,7 +168,7 @@ class tasks_contents():
                                 border_radius=0,
                                 )
             elif due_check=="not_expired":
-                title_control=ft.Container(content=ft.Text(title,size=35,weight=ft.FontWeight.W_500,color="white"),
+                title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="white"),
                                 alignment=ft.alignment.center_left,
                                 width=550,
                                 # height=50,
@@ -176,7 +176,7 @@ class tasks_contents():
                             #   border_radius=0,
                                 )
             
-            note_control=ft.Container(content=ft.Text(note,size=28,weight=ft.FontWeight.W_400,color="white"),
+            note_control=ft.Container(content=ft.Text(note,size=24,weight=ft.FontWeight.W_400,color="white"),
                             # bgcolor="grey",
                             alignment=ft.alignment.center_left,
                             width=530,
@@ -194,9 +194,9 @@ class tasks_contents():
             
             
             if status=="needsAction":
-                btn= ft.Switch(value=False,scale=1.5,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
+                btn= ft.Switch(value=False,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
             elif status=="completed":
-                btn= ft.Switch(value=True,scale=1.5,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
+                btn= ft.Switch(value=True,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
                 
             
             
@@ -218,7 +218,7 @@ class tasks_contents():
     def task_complete(self,tid,ts,val):
         tasks.change_status(tid, ts,val)
         #ここにtasksの表示をupdateする関数の実行を書く．
-        time.sleep(2)#スライドスイッチの変化がGoogle Tasksに反映されるまで待つ
+        time.sleep(1)#スライドスイッチの変化がGoogle Tasksに反映されるまで待つ
         self.tasks_list_create()
         self.page.update()
         
