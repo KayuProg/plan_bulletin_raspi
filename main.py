@@ -20,7 +20,7 @@ def switch_disabled():
         tasks.remain.controls[i].content.controls[-1].disabled=True
     tasks_num=len(tasks.completed.controls)
     for i in range(tasks_num):
-        tasks.remain.controls[i].content.controls[-1].disabled=True
+        tasks.completed.controls[i].content.controls[-1].disabled=True
 
 def switch_abled():
     tasks_num=len(tasks.remain.controls)
@@ -28,7 +28,7 @@ def switch_abled():
         tasks.remain.controls[i].content.controls[-1].disabled=False
     tasks_num=len(tasks.completed.controls)
     for i in range(tasks_num):
-        tasks.remain.controls[i].content.controls[-1].disabled=False
+        tasks.completed.controls[i].content.controls[-1].disabled=False
 
 
 def main(page: ft.Page):

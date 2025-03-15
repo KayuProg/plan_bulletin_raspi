@@ -215,11 +215,34 @@ class tasks_contents():
                 
         return 0
     
+    def switch_diabled(self):
+        tasks_num=len(self.remain.controls)
+        for i in range(tasks_num):
+            self.remain.controls[i].content.controls[-1].disabled=True
+            tasks_num=len(self.completed.controls)
+        for i in range(tasks_num):
+            self.completed.controls[i].content.controls[-1].disabled=True
+        #change buttonも使えないようにする．
+        self.change_button.content.disabled=True
+            
+    def switch_abled(self):
+        tasks_num=len(self.remain.controls)
+        for i in range(tasks_num):
+            self.remain.controls[i].content.controls[-1].disabled=False
+            tasks_num=len(self.completed.controls)
+        for i in range(tasks_num):
+            self.completed.controls[i].content.controls[-1].disabled=False
+        self.change_button.content.disabled=False
+
+            
     def task_complete(self,tid,ts,val):
+        self.switch_diabled()
+        self.page.update()
         tasks.change_status(tid, ts,val)
         #ここにtasksの表示をupdateする関数の実行を書く．
         time.sleep(1)#スライドスイッチの変化がGoogle Tasksに反映されるまで待つ
         self.tasks_list_create()
+        self.switch_abled()
         self.page.update()
         
         return 0
