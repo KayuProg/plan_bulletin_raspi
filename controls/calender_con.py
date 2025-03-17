@@ -90,6 +90,10 @@ class calender_contents():
         events=calender.main()
         list_con=[]
         for event in events:
+            #eventないときの処理を書く
+            if event == None:
+                continue
+            
             event_time=datetime.datetime.fromisoformat(event["date"]).strftime("%H:%M")
             if event_time=="00:00":
                 event_time="All Day"
