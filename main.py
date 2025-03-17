@@ -65,7 +65,7 @@ def main(page: ft.Page):
         logging.info("repeating")
         calender.calender_update()#これを実行するとカレンダーの内容がupdateされる．
         
-        if timer>300:
+        if timer>60:
             #tasksのスイッチをdisabledにする．
             switch_disabled()
             page.update()
