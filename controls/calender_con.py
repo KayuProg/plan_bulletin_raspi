@@ -91,14 +91,15 @@ class calender_contents():
         list_con=[]
         for event in events:
             #eventないときの処理を書く
-            イベントが何もないときはtitleとかに何もなしとか入れとくといいかもね．
-            if event == None:
-                continue
             
-            event_time=datetime.datetime.fromisoformat(event["date"]).strftime("%H:%M")
-            if event_time=="00:00":
+            if  event["date"]=="All day":
                 event_time="All Day"
-
+            else:
+                event_time=datetime.datetime.fromisoformat(event["date"]).strftime("%H:%M")
+                if event_time=="00:00":
+                    event_time="All Day"
+                
+            
             bg_color=event["color"]
             
             time=ft.Container(content=ft.Text(event_time,size=35,weight=ft.FontWeight.W_500,color="white"),
@@ -142,9 +143,13 @@ class calender_contents():
         events=calender.main()
         # list_con=[]
         for event in events:
-            event_time=datetime.datetime.fromisoformat(event["date"]).strftime("%H:%M")
-            if event_time=="00:00":
+            if  event["date"]=="All day":
                 event_time="All Day"
+            else:
+                event_time=datetime.datetime.fromisoformat(event["date"]).strftime("%H:%M")
+                if event_time=="00:00":
+                    event_time="All Day"
+                
 
             bg_color=event["color"]
             

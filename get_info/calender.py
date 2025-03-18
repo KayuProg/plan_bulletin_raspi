@@ -57,34 +57,28 @@ def main():
     
     events = events_result.get("items", [])
     
-    
-    if not events:
-      print("No upcoming events found.")
-      return 
 
     result=[]
-    for event in events:
-      #次の予定が含まれていたらスキップ．
-      if event["start"].get("date") != None:
-        continue
-      #予定が次の日だと"date"がNone以外の値になるから，この条件文．
-      #############################
-      date=event["start"].get("dateTime", event["start"].get("date"))
-      summary=event["summary"]
-      color_id=event.get("colorId","1")
-      color=color_dict.get(color_id, {}).get("background")
-      description=event.get("description")
-      
-      #result配列内に辞書配列として内容を返す．
-      result_con={"date":date,"summary":summary,"desc":description,"color":color}
-      result.append(result_con)
-      
-    #次の日の予定がAll dayだと含まれてしまうから消去
-    # while 1:
-    #   result_date=result[-1]["date"]
-    #   print(result_date)
-    #   break
-          
+    if events != None:#eventsがNone(その日の予定がない)時の処理．
+      for event in events:
+        #次の予定が含まれていたらスキップ．
+        if event["start"].get("date") != None:
+          continue
+        #予定が次の日だと"date"がNone以外の値になるから，この条件文．
+        #############################
+        date=event["start"].get("dateTime", event["start"].get("date"))
+        summary=event["summary"]
+        color_id=event.get("colorId","1")
+        color=color_dict.get(color_id, {}).get("background")
+        description=event.get("description")
+        
+        #result配列内に辞書配列として内容を返す．
+        result_con={"date":date,"summary":summary,"desc":description,"color":color}
+        result.append(result_con)
+  
+    if not events:
+      print("No upcoming events found.")
+      result=[{"date":"All day","summary":"You are FREE today !!","desc":None,"color":"yellow"}]
     return result
 
   except HttpError as error:
