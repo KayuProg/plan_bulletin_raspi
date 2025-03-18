@@ -91,6 +91,7 @@ class calender_contents():
         list_con=[]
         for event in events:
             #eventないときの処理を書く
+            イベントが何もないときはtitleとかに何もなしとか入れとくといいかもね．
             if event == None:
                 continue
             
