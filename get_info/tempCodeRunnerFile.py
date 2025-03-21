@@ -1,2 +1,2 @@
- # dueMin=today,
-                    # dueMax=next_day,
+ now = now_time.replace(hour=0, minute=0, second=0).isoformat() + "Z"  # 'Z' indicates UTC time
+    next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0).isoformat()+"Z"

@@ -31,12 +31,18 @@ def main():
 
     #ISOformatでの日付
     now_time=datetime.datetime.utcnow()+datetime.timedelta(hours=9)
-    now = now_time.replace(hour=0, minute=0, second=0).isoformat() + "Z"  # 'Z' indicates UTC time
-    next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0).isoformat()+"Z"
+    
+    now= (now_time + datetime.timedelta(days=0)).replace(hour=0, minute=0, second=0).isoformat()+"+09:00"
+    next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0).isoformat()+"+09:00"
+    
+    #なぜか9:00以降の予定のみが反映される．
+    
+    
+    
     # next_day= now_time.replace(hour=23, minute=59, second=59).isoformat()+"Z"
-    # print(now_time)
-    # print(now)
-    # print(next_day)
+    print(now_time)
+    print(now)
+    print(next_day)
 
     #now,next_dayを設定することによって本日のみのデータを返す．
     events_result = (
@@ -79,6 +85,7 @@ def main():
     if not events:
       print("No upcoming events found.")
       result=[{"date":"All day","summary":"You are FREE today !!","desc":None,"color":"yellow"}]
+    print("\n",result,"\n")
     return result
 
   except HttpError as error:
