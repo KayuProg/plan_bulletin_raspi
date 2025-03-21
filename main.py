@@ -5,14 +5,14 @@ from controls import tasks_con
 import flet as ft
 import time
     
-import logging    
-logging.basicConfig(
-    filename="log.txt",
-    level=logging.INFO,
-    format="%(asctime)s-%(levelname)s-%(message)s",
-    encoding="utf-8")
+# import logging    
+# logging.basicConfig(
+#     filename="log.txt",
+#     level=logging.INFO,
+#     format="%(asctime)s-%(levelname)s-%(message)s",
+#     encoding="utf-8")
     
-logging.info("script was run")
+# logging.info("script was run")
 
 def switch_disabled():
     tasks_num=len(tasks.remain.controls)
@@ -49,7 +49,7 @@ def main(page: ft.Page):
     global calender, tasks
     calender=calender_con.calender_contents()
     tasks=tasks_con.tasks_contents(page)    
-    logging.info("got info")
+    # logging.info("got info")
     
     app=ft.Row(controls=[
                         calender.contents,#tasks開発のために一度実行しない．
@@ -57,12 +57,12 @@ def main(page: ft.Page):
                         tasks.contents],
                 expand=True,spacing=0)#expandで縦画面サイズに合わせる,spacing=0でdividerの区切り消す．
     
-    logging.info("creating page")
+    # logging.info("creating page")
     page.add(app)
 
     timer=0
     while 1:
-        logging.info("repeating")
+        # logging.info("repeating")
         calender.calender_update()#これを実行するとカレンダーの内容がupdateされる．
         
         if timer>60:
@@ -80,6 +80,6 @@ def main(page: ft.Page):
 
 
 
-logging.info("before ft.app")
+# logging.info("before ft.app")
 ft.app(main)
-logging.info("after ft.app")
+# logging.info("after ft.app")
