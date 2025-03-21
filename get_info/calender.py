@@ -34,11 +34,7 @@ def main():
     
     now= (now_time + datetime.timedelta(days=0)).replace(hour=0, minute=0, second=0).isoformat()+"+09:00"
     next_day= (now_time + datetime.timedelta(days=1)).replace(hour=0, minute=0, second=0).isoformat()+"+09:00"
-    
-    #なぜか9:00以降の予定のみが反映される．
-    
-    
-    
+      
     # next_day= now_time.replace(hour=23, minute=59, second=59).isoformat()+"Z"
     # print(now_time)
     # print(now)

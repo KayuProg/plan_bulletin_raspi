@@ -82,9 +82,13 @@ def main():
             nextpagetoken = response.get("nextPageToken")
             if not nextpagetoken:
                 break
-        
+            
+        # print(tasks)
+        #日付順にソート
+        sorted_tasks = sorted(tasks, key=lambda x: datetime.datetime.strptime(x['due'], "%Y-%m-%dT%H:%M:%S.%fZ"))
+
         display_tasks=[]
-        for task in tasks:
+        for task in sorted_tasks:
             task_info=[]#taskの情報を格納する．
             title=task.get("title")
             note=task.get("notes")
@@ -104,7 +108,10 @@ def main():
             #print(task.get("title")," \n")
         
         # print(display_tasks)
-
+        
+        #順番通りになっているかチェック
+        # for con in display_tasks:
+        #     print(con["due"])
         return display_tasks
             
             
