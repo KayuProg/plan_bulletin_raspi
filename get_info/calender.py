@@ -40,9 +40,9 @@ def main():
     
     
     # next_day= now_time.replace(hour=23, minute=59, second=59).isoformat()+"Z"
-    print(now_time)
-    print(now)
-    print(next_day)
+    # print(now_time)
+    # print(now)
+    # print(next_day)
 
     #now,next_dayを設定することによって本日のみのデータを返す．
     events_result = (
@@ -85,7 +85,7 @@ def main():
     if not events:
       print("No upcoming events found.")
       result=[{"date":"All day","summary":"You are FREE today !!","desc":None,"color":"yellow"}]
-    print("\n",result,"\n")
+    # print("\n",result,"\n")
     return result
 
   except HttpError as error:
