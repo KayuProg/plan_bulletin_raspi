@@ -59,13 +59,17 @@ def main():
     
     events = events_result.get("items", [])
     
+    # print(events)
 
     result=[]
     if events != None:#eventsがNone(その日の予定がない)時の処理．
       for event in events:
         #次の予定が含まれていたらスキップ．
+        # if event["start"].get("date") != None or now<event["start"].get("date"):
         if event["start"].get("date") != None:
-          continue
+          if now<event["start"].get("date"):
+            # print(now<event["start"].get("date"))
+            continue
         #予定が次の日だと"date"がNone以外の値になるから，この条件文．
         #############################
         date=event["start"].get("dateTime", event["start"].get("date"))
@@ -81,7 +85,7 @@ def main():
     if not events:
       print("No upcoming events found.")
       result=[{"date":"All day","summary":"You are FREE today !!","desc":None,"color":"yellow"}]
-    # print("\n",result,"\n")
+
     return result
 
   except HttpError as error:
