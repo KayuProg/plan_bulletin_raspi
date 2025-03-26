@@ -4,7 +4,7 @@ This is an app showing our plan recorded on Google Apps like "Google Calender" a
 
 
 
-# How to use
+# How to run flet 
 
 First you should move into venv unning below command.
 
