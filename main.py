@@ -38,7 +38,7 @@ def main(page: ft.Page):
     page.window.width=1600
     page.window.height=900
     page.fonts={
-            "Go_bd":"/home/kayu/Desktop/plan/assets/LINESeedJP_TTF_Bd.ttf"
+            "Go_bd":"/home/kayu/Desktop/plan_bulletin_raspi/assets/LINESeedJP_TTF_Bd.ttf"
     }
     page.bgcolor="black"
     page.color="white"
