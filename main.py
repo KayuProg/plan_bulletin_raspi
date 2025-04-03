@@ -35,7 +35,7 @@ def main(page: ft.Page):
     #iPad用のwindowサイズにしておく．
     #page.window.width=1024
     #page.window.height=768
-    page.window.width=1600
+    page.window.width=1800
     page.window.height=900
     page.fonts={
             "Go_bd":"/home/kayu/Desktop/plan_bulletin_raspi/assets/LINESeedJP_TTF_Bd.ttf"

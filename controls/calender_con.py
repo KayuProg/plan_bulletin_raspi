@@ -110,14 +110,14 @@ class calender_contents():
                               )
             plan_con=ft.Container(content=ft.Text(event["summary"],size=35,weight=ft.FontWeight.W_500,bgcolor=bg_color,color="black",expand=True),
                                 # alignment=ft.alignment.center,
-                                width=530,
+                                width=670,
                                 margin=ft.margin.only(0,0,0,1),padding=ft.padding.symmetric(horizontal=10),
                                 border_radius=3,
                                 bgcolor=bg_color
                               )        
             description=ft.Container(content=ft.Text(event["desc"],size=28,weight=ft.FontWeight.W_500,color="black",expand=True),
                                 # alignment=ft.alignment.center,
-                                width=530,
+                                width=670,
                                 margin=0,padding=ft.padding.only(10,0,0,0),
                                 border_radius=3,
                                 bgcolor=bg_color
@@ -161,7 +161,7 @@ class calender_contents():
                               )
             plan_con=ft.Container(content=ft.Text(event["summary"],size=35,weight=ft.FontWeight.W_500,bgcolor=bg_color,color="black",expand=True),
                                 # alignment=ft.alignment.center,
-                                width=530,
+                                width=670,
                                 margin=ft.margin.only(0,0,0,1),padding=ft.padding.symmetric(horizontal=10),
                                 border_radius=3,
                                 bgcolor=bg_color
@@ -169,7 +169,7 @@ class calender_contents():
                                  
             description=ft.Container(content=ft.Text(event["desc"],size=28,weight=ft.FontWeight.W_500,color="black",expand=True),
                                 # alignment=ft.alignment.center,
-                                width=530,
+                                width=670,
                                 margin=0,padding=ft.padding.only(10,0,0,0),
                                 border_radius=3,
                                 bgcolor=bg_color

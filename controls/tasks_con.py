@@ -162,7 +162,7 @@ class tasks_contents():
             if due_check=="expired":#期限切れ
                 title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="red"),
                                 alignment=ft.alignment.center_left,
-                                width=550,
+                                width=690,
                                 # height=50,
                             #   margin= ft.margin.symmetric(vertical=10),padding=0,
                                 border_radius=0,
@@ -170,7 +170,7 @@ class tasks_contents():
             elif due_check=="not_expired":
                 title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="white"),
                                 alignment=ft.alignment.center_left,
-                                width=550,
+                                width=690,
                                 # height=50,
                             #   margin= ft.margin.symmetric(vertical=10),padding=0,
                             #   border_radius=0,
@@ -179,7 +179,7 @@ class tasks_contents():
             note_control=ft.Container(content=ft.Text(note,size=24,weight=ft.FontWeight.W_400,color="white"),
                             # bgcolor="grey",
                             alignment=ft.alignment.center_left,
-                            width=530,
+                            width=670,
                         #   height=50,
                             margin= ft.margin.only(20,0,0,0),padding=0,
                         #   border_radius=0,
@@ -205,7 +205,7 @@ class tasks_contents():
         #     else:
         #         plan_column=ft.Column(controls=[plan_con,description],expand=True,spacing=0)
 
-            list_con=ft.Container(content=ft.Row(controls=[due_date_control,title_display,btn],spacing=0),margin=ft.margin.only(0,0,30,0))
+            list_con=ft.Container(content=ft.Row(controls=[due_date_control,title_display,btn],spacing=5),margin=ft.margin.only(0,0,30,0))
 
             if status=="needsAction":
                 self.remain.controls.append(list_con)
