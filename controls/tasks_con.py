@@ -155,14 +155,14 @@ class tasks_contents():
                               alignment=ft.alignment.center,
                               width=120,
                             #   height=30,
-                              margin= ft.margin.only(15,0,30,0),padding=0,
+                              margin= ft.margin.only(15,0,10,0),padding=0,
                               border_radius=0,
                               )
             
             if due_check=="expired":#期限切れ
                 title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="red"),
                                 alignment=ft.alignment.center_left,
-                                width=690,
+                                width=725,
                                 # height=50,
                             #   margin= ft.margin.symmetric(vertical=10),padding=0,
                                 border_radius=0,
@@ -170,7 +170,7 @@ class tasks_contents():
             elif due_check=="not_expired":
                 title_control=ft.Container(content=ft.Text(title,size=30,weight=ft.FontWeight.W_500,color="white"),
                                 alignment=ft.alignment.center_left,
-                                width=690,
+                                width=725,
                                 # height=50,
                             #   margin= ft.margin.symmetric(vertical=10),padding=0,
                             #   border_radius=0,
@@ -179,7 +179,7 @@ class tasks_contents():
             note_control=ft.Container(content=ft.Text(note,size=24,weight=ft.FontWeight.W_400,color="white"),
                             # bgcolor="grey",
                             alignment=ft.alignment.center_left,
-                            width=670,
+                            width=690,
                         #   height=50,
                             margin= ft.margin.only(20,0,0,0),padding=0,
                         #   border_radius=0,
@@ -194,9 +194,13 @@ class tasks_contents():
             
             
             if status=="needsAction":
-                btn= ft.Switch(value=False,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
+                btn= ft.Container(content=ft.Switch(value=False,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value)),
+                margin= ft.margin.only(20,0,0,0),padding=0,
+                )
             elif status=="completed":
-                btn= ft.Switch(value=True,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value))
+                btn= ft.Container(content=ft.Switch(value=True,scale=1.2,on_change=lambda e,tid=task_id, ts=status:self.task_complete(tid, ts,e.control.value)),
+                margin= ft.margin.only(20,0,0,0),padding=0,
+                )
                 
             
             
