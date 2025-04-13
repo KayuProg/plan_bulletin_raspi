@@ -1,0 +1,15 @@
+[Unit]
+Description = run plan_bulletin
+After=graphical.target
+Wants=graphical.target
+
+[Service]
+User=kayu
+Group=kayu
+Environment="DISPLAY=:0.0"
+#ExecStartPre=/usr/bin/printenv
+ExecStart=/home/kayu/Desktop/plan_bulletin.sh
+workingDirectory=/home/kayu/Desktop/plan_bulletin_raspi
+
+[Install]
+WantedBy=graphical.target
