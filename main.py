@@ -79,7 +79,12 @@ def main(page: ft.Page):
         timer+=1
 
 
-
 # logging.info("before ft.app")
-ft.app(main)
+
+#ft.app(main)
+
 # logging.info("after ft.app")
+
+
+
+
