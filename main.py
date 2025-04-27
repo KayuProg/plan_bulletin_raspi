@@ -5,6 +5,9 @@ from controls import tasks_con
 import flet as ft
 import time
     
+#for debug
+import traceback    
+
 # import logging    
 # logging.basicConfig(
 #     filename="log.txt",
@@ -62,22 +65,29 @@ def main(page: ft.Page):
 
     timer=0
     while 1:
-        # logging.info("repeating")
-        calender.calender_update()#これを実行するとカレンダーの内容がupdateされる．
         
-        if timer>60:
-            #tasksのスイッチをdisabledにする．
-            switch_disabled()
+        try:
+            # logging.info("repeating")
+            calender.calender_update()#これを実行するとカレンダーの内容がupdateされる．
+            
+            if timer>60:
+                #tasksのスイッチをdisabledにする．
+                switch_disabled()
+                page.update()
+                #ここからがTaskの方を自動更新するプログラム．
+                tasks.tasks_list_create()#これを実行するとtasksがupdateされる．
+                #tasksのスイッチをabledにする．
+                switch_abled()
+                timer=0
             page.update()
-            #ここからがTaskの方を自動更新するプログラム．
-            tasks.tasks_list_create()#これを実行するとtasksがupdateされる．
-            #tasksのスイッチをabledにする．
-            switch_abled()
-            timer=0
-        page.update()
-        time.sleep(1)
-        timer+=1
+            time.sleep(1)
+            timer+=1
 
+        except Exception as e:
+            with open("error.txt", "a", encoding="utf-8") as f:
+                f.write("=== Error Occurred ===\n")
+                f.write(traceback.format_exc())  # エラーの詳細を取得して書き込む
+                f.write("\n")
 
 
 # logging.info("before ft.app")
