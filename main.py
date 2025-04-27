@@ -89,7 +89,12 @@ def main(page: ft.Page):
                 f.write(traceback.format_exc())  # エラーの詳細を取得して書き込む
                 f.write("\n")
 
-
 # logging.info("before ft.app")
-ft.app(main)
+
+#ft.app(main)
+
 # logging.info("after ft.app")
+
+
+
+
